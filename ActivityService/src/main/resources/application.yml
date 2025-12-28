@@ -5,7 +5,11 @@ spring:
     host: localhost
     port: 27017
     database: aiactivityfitness
-
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 eureka:
   client:
     serviceUrl:
@@ -13,3 +17,7 @@ eureka:
 
 server:
   port: 8082
+
+kafka:
+  topic:
+    name: activity-events
